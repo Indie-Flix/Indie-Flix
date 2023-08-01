@@ -9,6 +9,7 @@ import EditForm from '../components/EditForm';
 
 const App = () => {
   const [creator, setCreator] = useState('');
+  console.log(creator);
   return (
     <BrowserRouter>
       {/* <div className="App"> */}
