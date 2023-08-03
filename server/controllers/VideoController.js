@@ -100,7 +100,6 @@ const videoController = {
       const { id } = req.params;
       // Sanitize information in request body
       const { title, description, thumbnail: image, videoUrl: videoLink, credits } = req.body;
-      console.log(req.body);
 
       // Create new update variable with required fields from request body
       const updates = {};

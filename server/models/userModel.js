@@ -31,7 +31,7 @@ UserSchema.virtual('confirmPassword')
   .set((value) => (this._confirmPassword = value));
 
 UserSchema.pre('validate', function (next) {
-  console.log('in validate');
+  // console.log('in validate');
 
   if (this.password !== this.confirmPassword) {
     this.invalidate('confirmPassword', 'Passwords must match.');
@@ -42,10 +42,10 @@ UserSchema.pre('validate', function (next) {
 
 // AUTH: the pre property is needed to handle AUTH. Takes password, hashes it, and stores it
 UserSchema.pre('save', function (next) {
-  console.log('in pre save');
+  // console.log('in pre save');
 
   bcrypt.hash(this.password, 10).then((hashedPassword) => {
-    console.log('in hash');
+    // console.log('in hash');
     this.password = hashedPassword;
     next();
   });

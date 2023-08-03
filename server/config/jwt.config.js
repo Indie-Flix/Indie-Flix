@@ -12,7 +12,7 @@ module.exports = {
           console.log(err);
           res.status(401).json({ verified: false });
         } else {
-          console.log(payload);
+          // console.log(payload);
 
           req.jwtpayload = payload;
 

@@ -6,6 +6,7 @@ import UploadForm from './components/UploadForm';
 import LogReg from './views/LogReg';
 import Theater from './views/Theater';
 import EditForm from './components/EditForm';
+import Watchlist from './components/WatchList';
 
 const App = () => {
   const [creator, setCreator] = useState('');

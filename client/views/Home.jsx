@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import CreatorFeed from '../containers/CreatorFeed';
 import Feed from '../containers/Feed';
 import Footer from '../components/Footer';
-
+import Watchlist from '../components/WatchList';
 
 const Home = ({ userData }) => {
   const [videoList, setVideoList] = useState([]);
