@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles.scss';
 import UploadForm from './UploadForm';
-import Register from './Register';
+import LogoutButton from './Logout'; 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+
+const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      setIsAuthenticated(false); 
+      navigate('/'); 
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  };
+  
+  useEffect(() => {}, [isAuthenticated]);
+
   return (
     <header>
       <div className="navbar navbar-expand navbar-dark bg-dark shadow-sm">
@@ -35,12 +53,17 @@ const Navbar = () => {
               </a>
               <UploadForm />
             </li>
-
-            <li className="nav-item">
-              <Link type="button" className="nav-link" to={'/login'}>
-                Login/Register
-              </Link>
-            </li>
+            {isAuthenticated ? 
+              <li className="nav-item">
+                <LogoutButton handleLogout={handleLogout} />
+              </li>
+              : 
+              <li className="nav-item">
+                <Link type="button" className="nav-link" to={'/login'}>
+                  Login/Register
+                </Link>
+              </li>
+            }
           </ul>
         </div>
       </div>
@@ -49,3 +72,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

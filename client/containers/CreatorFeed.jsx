@@ -4,7 +4,7 @@ import EditForm from '../components/EditForm';
 import { Link } from 'react-router-dom';
 import VideoCard from '../components/VideoCard';
 
-const CreatorFeed = ({ userData, getFeed }) => {
+const CreatorFeed = ({ userData, getFeed, isAuthenticated }) => {
   const [studioName, setStudioName] = useState('');
   const [outputArray, setOutputArray] = useState([]);
 
@@ -36,7 +36,7 @@ const CreatorFeed = ({ userData, getFeed }) => {
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [isAuthenticated]);
   
   //We left off in trying to map the videos to create individual (movie cards) that are tied to the user/creator
   //we want to create an array of react elements with the specific video information for all videos retrieved by the fetch method
