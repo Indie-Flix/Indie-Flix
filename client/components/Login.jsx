@@ -26,14 +26,11 @@ const Login = () => {
     })
       .then((userData) => userData.json()) //res is studioId
       .then((userData) => {
-        //userData could be an error message
-        // console.log(userData, 'SUCCESSFULLY Logged in!!');
-        // we need creator id from userData. 
         // call use navigate passing along correct data on the state property. collect this data using uselocation in the router and pass as prop to desired component
         navigate('/', { state: { userData, }});
       })
       .catch((err) => {
-        console.error('An error occurred while logging in: ', err);
+        console.error(`Login failed to POST login request: ERROR: ${err}`);
       });
   };
 
