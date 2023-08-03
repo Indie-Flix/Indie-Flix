@@ -6,7 +6,7 @@ import Feed from '../containers/Feed';
 import Footer from '../components/Footer';
 
 
-const Home = ({ userData }) => {
+const Home = ({ userData, isAuthenticated, setIsAuthenticated }) => {
   const [videoList, setVideoList] = useState([]);
 
   const getFeed = () => {
@@ -29,9 +29,12 @@ const Home = ({ userData }) => {
 
   return (
     <>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
       <main className="bg-dark-subtle">
-        <CreatorFeed getFeed={getFeed} userData={ userData } />
+        {isAuthenticated
+          ? <CreatorFeed isAuthenticated={isAuthenticated} getFeed={getFeed} userData={ userData } />
+          : null
+        }
         <Feed videoList={videoList} getFeed={getFeed} />
       </main>
       <Footer />
