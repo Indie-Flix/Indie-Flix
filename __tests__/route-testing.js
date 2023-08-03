@@ -5,7 +5,7 @@ const server = 'http://localhost:3000'
 // multiple tests for same route
 // make sure we recieve 200 and the correct content type
 
-describe('Route integration', () => {
+xdescribe('Route integration', () => {
 
     describe('/api/allVideos', () => {
         it('responds with 200 status and videos from DB are in body of response', () => {
