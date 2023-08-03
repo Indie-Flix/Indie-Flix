@@ -5,7 +5,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: { bundle: './client/src/index.js' },
+  entry: { bundle: './client/index.js' },
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
@@ -45,7 +45,7 @@ module.exports = {
 
   plugins: [
     new HTMLWebpackPlugin({
-      template: './client/src/index.html',
+      template: './client/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
