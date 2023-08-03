@@ -56,7 +56,7 @@ const UploadForm = () => {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="d-flex justify-content-between m-2">
-            <h1>Upload Your Film Information</h1>
+            <h1 className="card-text">Upload Your Film Information</h1>
             <button className="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div className="modal-body">
@@ -65,12 +65,12 @@ const UploadForm = () => {
                 <input
                   type="text"
                   id="edit-title"
-                  className="form-control"
+                  className="form-control card-text"
                   placeholder="Place title here"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
-                <label htmlFor="edit-title" className="form-label">
+                <label htmlFor="edit-title" className="form-label card-text">
                   Title
                 </label>
               </div>
@@ -78,12 +78,12 @@ const UploadForm = () => {
                 <input
                   type="text"
                   id="edit-credits"
-                  className="form-control"
+                  className="form-control card-text"
                   placeholder="Place credits here"
                   value={credits}
                   onChange={(e) => setCredits(e.target.value)}
                 />
-                <label htmlFor="edit-credits" className="form-label">
+                <label htmlFor="edit-credits" className="form-label card-text">
                   Credits/Creators
                 </label>
               </div>
@@ -91,45 +91,46 @@ const UploadForm = () => {
                 <input
                   type="text"
                   id="edit-vidURL"
-                  className="form-control"
+                  className="form-control card-text"
                   placeholder="Place URL here"
                   value={videoLink}
                   onChange={(e) => setVideoLink(e.target.value)}
                 />
-                <label htmlFor="edit-vidURL" className="form-label">
+                <label htmlFor="edit-vidURL" className="form-label card-text">
                   URL for your Video
                 </label>
               </div>
               <div className="form-floating mb-3">
                 <textarea
-                  className="form-control"
+                  className="form-control card-text"
                   placeholder="Leave a desc"
                   id="floatingTextarea2"
                   style={{ height: '100px' }}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
-                <label htmlFor="floatingTextarea2">Description</label>
+                <label htmlFor="floatingTextarea2" className="card-text">
+                  Description
+                </label>
               </div>
               <div className="form-floating mb-3">
                 <input
                   type="text"
                   id="edit-thumbURL"
-                  className="form-control"
+                  className="form-control card-text"
                   placeholder="Place URL here"
                   value={image}
                   onChange={(e) => setImage(e.target.value)}
                 />
-                <label htmlFor="edit-thumbURL" className="form-label">
+                <label htmlFor="edit-thumbURL" className="form-label card-text">
                   URL for your Thumbnail
                 </label>
               </div>
               <div className="d-flex justify-content-end">
-
                 <button
                   type="submit"
                   className="btn btn-primary"
-                  data-bs-dismiss='modal'
+                  data-bs-dismiss="modal"
                 >
                   Upload
                 </button>
@@ -140,6 +141,6 @@ const UploadForm = () => {
       </div>
     </div>
   );
-};
+};  
 
 export default UploadForm;

@@ -1,5 +1,26 @@
 @import 'bootstrap/scss/bootstrap';
 
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Limelight&family=Oswald:wght@300&display=swap');
+
+
+
+body {
+  font-family: 'Limelight', cursive;
+  background-image: url('./images/indiflix background 3.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+.custom-dark-bg {
+  background-color: #171717;
+}
+
+.card-text {
+  font-family: initial; 
+}
+
 .box {
   background-color: $primary;
   border: 1px solid blue;
@@ -22,6 +43,32 @@
 button .edit-btn {
   background: pink;
 }
+
+
+.custom-btn {
+  background-color: #e50914;
+  border-color: #e50914;
+  color: white;
+}
+
+.custom-btn:hover {
+  background-color: #ff1f2d;
+  border-color: #ff1f2d;
+  color: white;
+}
+
+.border-strong-black {
+  border-color: #000000; 
+}
+
+.red-text {
+  color: #FF0000;
+}
+
+.custom-white-text {
+  color: #ffffff; /* Your white color code */
+}
+
 
 #studio-heading {
   margin-top: 0; /* Set the top margin to 0 */

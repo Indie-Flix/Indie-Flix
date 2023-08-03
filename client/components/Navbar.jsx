@@ -9,7 +9,7 @@ const Navbar = () => {
     <header>
       <div className="navbar navbar-expand navbar-dark bg-dark shadow-sm">
         <div className="container">
-          <a href="/" className="navbar-brand d-flex align-items-center">
+          <a href="/" className="navbar-brand d-flex align-items-center red-text">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -27,7 +27,7 @@ const Navbar = () => {
             <li className="nav-item">
               <a
                 type="button"
-                className="nav-link"
+                className="nav-link custom-white-text"
                 data-bs-toggle="modal"
                 data-bs-target="#upload-modal"
               >
@@ -37,7 +37,7 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link type="button" className="nav-link" to={'/login'}>
+              <Link type="button" className="nav-link custom-white-text" to={'/login'}>
                 Login/Register
               </Link>
             </li>

@@ -44,10 +44,10 @@ const CreatorFeed = ({ userData, getFeed }) => {
   return (
     <>{outputArray.length !== 0 ? (
       <div>
-        <section className='py-5 text-center container'>
+        <section className='py-5 text-center container custom-dark-bg'>
           <div className='row'>
             <div className='col-md-10 mx-auto'>
-              <h1 className='fw-light' id='#studio-heading'>
+              <h1 className='fw-light custom-white-text' id='#studio-heading'>
                 {studioName}&apos;s Published Works
               </h1>
               <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>
@@ -59,6 +59,7 @@ const CreatorFeed = ({ userData, getFeed }) => {
         </section>
       </div> ) : null}</>
   );
+  
 
 };
 
