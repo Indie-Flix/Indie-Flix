@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../src/styles.scss';
-import Navbar from './Navbar';
+import '../styles.scss';
+import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
 
 const Theater = () => {
@@ -38,23 +38,23 @@ const Theater = () => {
         >
           <div className="container">
             <div className="p-3 text-center text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 mb-4">
-              <div
+              {/* <div
                 className="spinner-border text-primary mx-3"
                 role="status"
               >
                 <span className="visually-hidden">
                                     Loading...
                 </span>
-              </div>
+              </div> */}
               <span className="text fs-1">{video.title}</span>
-              <div
+              {/* <div
                 className="spinner-border text-primary mx-3"
                 role="status"
               >
                 <span className="visually-hidden">
                                     Loading...
                 </span>
-              </div>
+              </div> */}
             </div>
 
             <div className="row row-cols-1 row-cols-sm-8 row-cols-md-12 g-3">

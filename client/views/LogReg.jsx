@@ -1,9 +1,9 @@
 import React from 'react';
-import Login from './Login';
-import Register from './Register';
+import Login from '../components/Login';
+import Register from '../components/Register';
 import { Link } from 'react-router-dom';
-import Footer from './Footer';
-import Navbar from './Navbar';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 const LogReg = ({creator, setCreator}) => {
   return (
