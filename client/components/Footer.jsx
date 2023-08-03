@@ -1,5 +1,5 @@
 import React from 'react';
-import '../src/styles.scss';
+import '../styles.scss';
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         <p className="float-end mb-1">
           <a href="#">Back to top</a>
         </p>
-        <p className="m-4">Axolotl Flix</p>
+        <p className="m-4">Indie-Flix</p>
       </div>
     </footer>
   );

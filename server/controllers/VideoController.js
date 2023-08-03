@@ -99,16 +99,16 @@ const videoController = {
       // Sanitize ID from request params
       const { id } = req.params;
       // Sanitize information in request body
-      const { title, description, image, videoLink, createdBy } = req.body;
+      const { title, description, thumbnail: image, videoUrl: videoLink, credits } = req.body;
+      console.log(req.body);
 
       // Create new update variable with required fields from request body
-      const updates = {
-        title,
-        description,
-        image,
-        videoLink,
-        createdBy
-      };
+      const updates = {};
+      if (title) updates.title = title;
+      if (description) updates.description = description;
+      if (image) updates.image = image;
+      if (videoLink) updates.videoLink = videoLink;
+      if (credits) updates.credits = credits;
 
       // Find video by ID and update contents with sanitized update object
       const updatedVideo = await Video.findByIdAndUpdate(id, updates, { new: true });

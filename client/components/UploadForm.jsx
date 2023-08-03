@@ -1,5 +1,5 @@
 import React from 'react';
-import '../src/styles.scss';
+import '../styles.scss';
 import { react, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //This comes from clicking the Upload button on the navbar
@@ -129,7 +129,7 @@ const UploadForm = () => {
                 <button
                   type="submit"
                   className="btn btn-primary"
-
+                  data-bs-dismiss='modal'
                 >
                   Upload
                 </button>
