@@ -152,6 +152,15 @@ const videoController = {
       });
     }
   },
+  //GET VIDEOS BY GENRE
+  videoByGenre: async (req, res, next) => {
+    try {
+      //santaize route paramter id from request params
+      const { genre } = req.params;
+      //find videos with 
+
+    }
+  }
 };
 
 module.exports = videoController;

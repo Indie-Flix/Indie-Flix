@@ -3,9 +3,17 @@ import '../styles.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Watchlist from '../components/WatchList';
+import Genre from '../components/Genre';
 
 const Feed = ({ getFeed, videoList }) => {
-
+  const [genre, setGenre] = useState('');
+  
+  const getByGenre = (event) => {
+    const { value } = event.target;
+    setGenre(value);
+    
+    fetch(`api/videos/genre/${genre}`)
+  }
 
   useEffect(() => {
     getFeed();
@@ -28,9 +36,9 @@ const Feed = ({ getFeed, videoList }) => {
             <p className="card-text">{video.title}</p>
             <div className="d-flex justify-content-between align-items-center">
               <div className="btn-group">
-                <Link type="button" className="btn btn-sm btn-outline-secondary" to={`/videos/${video._id}`}>
+                <Link >
                   View
-                </Link>
+                </Link >
               </div>
             </div>
           </div>
