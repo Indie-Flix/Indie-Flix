@@ -24,12 +24,12 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
         method:'DELETE',
       });
       if (response.status === 204) {
-        console.log('Video delete success.');
+        console.log('Video delete request success.');
         fetchVideos();
         getFeed();
       }
     } catch (err) {
-      console.log('Error while deleting video:', err.message);
+      console.log(`EditForm failed to DELETE video by ID: ERROR: ${err}`);
     }
   };
   
@@ -48,12 +48,11 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
         body: JSON.stringify(formData),
       });
       if (response.status === 201) {
-        // console.log('Video updated successfully!');
         fetchVideos();
         getFeed();
       }
     } catch (err) {
-      console.log('Error while updating the video:', err.message);
+      console.log(`EditForm failed to PATCH video information by ID: ERROR: ${err}`);
     }
   };
   

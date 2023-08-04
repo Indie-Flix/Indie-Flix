@@ -32,18 +32,14 @@ const UploadForm = () => {
       }),
     })
       .then((videoData) => {
-
         setTitle('');
         setVideoLink('');
         setCredits('');
         setDescription('');
         setImage('');
         return videoData.json();}) 
-      .then((videoData) => {
-        console.log(videoData, 'SUCCESSFULLY CREATED VIDEO!!');
-      })
       .catch((err) => {
-        console.log('An error occurred while POSTING new video info: ', err);
+        console.log(`UploadForm failed to POST new video upload: ERROR: ${err}`);
       });
   };
 

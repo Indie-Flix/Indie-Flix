@@ -22,7 +22,7 @@ const Home = ({ userData, isAuthenticated, setIsAuthenticated }) => {
         setVideoList(videoData);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(`Home failed to GET all videos: ERROR: ${err}`);
       })
     ;
   };
