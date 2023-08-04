@@ -4,15 +4,14 @@ import { react, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //This comes from clicking the Upload button on the navbar
 
-const UploadForm = ({ getFeed, fetchVideos }) => {
+const UploadForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
-  const [title, setTitle] = useState('');
-  const [videoLink, setVideoLink] = useState('');
-  const [credits, setCredits] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
-  const [genre, setGenre] = useState('');
-  
+  const[title, setTitle] = useState('');
+  const[videoLink, setVideoLink] = useState('');
+  const[credits, setCredits] = useState('');
+  const[description, setDescription] = useState('');
+  const[image, setImage] = useState('');
+
   const handleVidSubmit = (e) => {
     e.preventDefault();
   
@@ -29,7 +28,7 @@ const UploadForm = ({ getFeed, fetchVideos }) => {
         description: description,
         image: image,
         videoLink: videoLink,
-        genre: genre
+     
       }),
     })
       .then((videoData) => {
@@ -38,9 +37,6 @@ const UploadForm = ({ getFeed, fetchVideos }) => {
         setCredits('');
         setDescription('');
         setImage('');
-        setGenre('');
-        getFeed();
-        fetchVideos();
         return videoData.json();}) 
       .catch((err) => {
         console.log(`UploadForm failed to POST new video upload: ERROR: ${err}`);
@@ -124,19 +120,8 @@ const UploadForm = ({ getFeed, fetchVideos }) => {
                   URL for your Thumbnail
                 </label>
               </div>
-              <div>
-                <label htmlFor='genre'>Choose a genre \n</label>
-                <select name='genre' onChange={(e) => setGenre(e.target.value)}>
-                  <option value='action'>Action</option>
-                  <option value='comedy'>Comedy</option>
-                  <option value='drama'>Drama</option>
-                  <option value='romance'>Romance</option>
-                  <option value='horror'>Horror</option>
-                  <option value='western'>Western</option>
-                  <option value='sci-fi'>Sci-Fi</option>
-                </select>
-              </div>
               <div className="d-flex justify-content-end">
+
                 <button
                   type="submit"
                   className="btn btn-primary"
