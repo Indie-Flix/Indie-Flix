@@ -7,8 +7,8 @@ const Genre = ({ getByGenre }) => {
 
   return (
     <form>
-      <label htmlFor='genre'>Choose a genre </label>
-      {/*Add on change function here!*/}
+      <label htmlFor='genre'>Filter by genre </label>
+      <br/>
       <select name='genre' onChange={getByGenre}>
         <option value='action'>Action</option>
         <option value='comedy'>Comedy</option>

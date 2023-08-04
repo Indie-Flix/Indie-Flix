@@ -4,7 +4,7 @@ import { react, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //This comes from clicking the Upload button on the navbar
 
-const UploadForm = () => {
+const UploadForm = ({ getFeed, fetchVideos }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [title, setTitle] = useState('');
   const [videoLink, setVideoLink] = useState('');
@@ -39,6 +39,8 @@ const UploadForm = () => {
         setDescription('');
         setImage('');
         setGenre('');
+        getFeed();
+        fetchVideos();
         return videoData.json();}) 
       .catch((err) => {
         console.log(`UploadForm failed to POST new video upload: ERROR: ${err}`);
