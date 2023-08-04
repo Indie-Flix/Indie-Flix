@@ -30,7 +30,6 @@ const VideoCard = ({ film, fetchVideos, getFeed }) => {
       </div>
     </div>
   );
-  
 };
 
 

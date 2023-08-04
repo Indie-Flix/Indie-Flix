@@ -2,8 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Limelight&family=Oswald:wght@300&display=swap');
 
-
-
 body {
   font-family: 'Limelight', cursive;
   background-image: url('./images/indiflix background 3.jpeg');
@@ -11,7 +9,6 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-
 
 .custom-dark-bg {
   background-color: #171717;
@@ -44,7 +41,6 @@ button .edit-btn {
   background: pink;
 }
 
-
 .custom-btn {
   background-color: #e50914;
   border-color: #e50914;
@@ -66,12 +62,11 @@ button .edit-btn {
 }
 
 .custom-white-text {
-  color: #ffffff; /* Your white color code */
+  color: #ffffff; 
 }
 
-
-#studio-heading {
-  margin-top: 0; /* Set the top margin to 0 */
+.video-title {
+  font-size: 1.25rem; 
 }
 
 @media (min-width: 768px) {
@@ -79,3 +74,4 @@ button .edit-btn {
     font-size: 3.5rem;
   }
 }
+

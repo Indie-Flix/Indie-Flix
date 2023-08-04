@@ -25,7 +25,7 @@ const Feed = ({ getFeed, videoList }) => {
             preserveAspectRatio="xMidYMid slice"
           />
           <div className="card-body custom-dark-bg text-center">
-            <p className="card-text custom-white-text">{video.title}</p>
+            <p className="card-text custom-white-text video-title">{video.title}</p>
             <div className="d-flex justify-content-center align-items-center">
               <div className="btn-group">
                 <Link
@@ -42,6 +42,7 @@ const Feed = ({ getFeed, videoList }) => {
       </div>
     );
   });
+  
 
   return (
     <div className="album py-5 custom-dark-bg">
