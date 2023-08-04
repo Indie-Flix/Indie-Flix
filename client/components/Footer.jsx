@@ -8,10 +8,11 @@ const Footer = () => {
         <p className="float-end mb-1">
           <a href="#">Back to top</a>
         </p>
-        <p className="m-4">Indie-Flix</p>
+        <p className="m-4 red-text">Indie-Flix</p>
       </div>
     </footer>
   );
 };
+
 
 export default Footer;

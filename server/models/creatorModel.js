@@ -35,7 +35,6 @@ CreatorSchema.pre('validate', function (next) {
 
   if (this.password !== this.confirmPassword) {
     this.invalidate('confirmPassword', 'Passwords must match.');
-    console.log('Passwords don\'t match.');
   }
   next();
 });

@@ -7,6 +7,7 @@ const creatorController = {
   register: async (req, res, next) => {
     try {
       // Sanitize information in request body
+      console.log(req.body);
       const { username, email, password, studio, confirmPassword } = req.body;
       // Create new creator in database from sanitized request body
       const creator = new Creator({ username, email, password, studio, confirmPassword });
@@ -21,7 +22,6 @@ const creatorController = {
 
       return next();
     } catch (err) {
-      console.log('Register unsuccessful');
       return next({
         log: `CreatorController.register failed to register new creator: ERROR: ${err.message}.`,
         status: 500,
@@ -57,7 +57,6 @@ const creatorController = {
         },
         process.env.JWT_SECRET
       );
-      console.log('succesful login');
 
       // Adds cookie to creator browser with signed JWT token
       res.cookie('usertoken', token, {
@@ -114,7 +113,7 @@ const creatorController = {
       // finds and assigns the Creator model document associated with the _id of the usertoken to the creator variable
       const creator = await Creator.findOne({ _id: decodedJWT.payload.id });
       // assigns the creator document to the res.locals.foundCreator property so that it can be sent as a response in creatorRoutes
-      res.locals.foundCreator = creator;
+      res.locals.foundCreator = true;
 
       return next();
     } catch (err) {
