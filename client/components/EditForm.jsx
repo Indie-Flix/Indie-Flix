@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import '../styles.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-//Comes from clicking the edit button from the Studio's uploaded video section of the main page
-const EditForm = ({ id, fetchVideos, data, getFeed }) => {
-  //logic should be very similar to uploadform setup'
 
+const EditForm = ({ id, fetchVideos, data, getFeed }) => {
   const [formData, setFormData] = useState({
     title: '',
     credits: '',
@@ -33,11 +30,7 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
       console.log(`EditForm failed to DELETE video by ID: ERROR: ${err}`);
     }
   };
-  
-  /**
-   * I think its more of that bootstrap stuff. yeah gonna eat see you after dinner
-   * see ya
-   * */
+
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -58,7 +51,7 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
   };
   
   return (
-    <div className='modal fade' id={`edit-modal-${id}`}>
+    <div className='modal fade' id={`edit-modal-${ id }`}>
       <div className='modal-dialog modal-dialog-centered'>
         <div className='modal-content'>
           <div className='d-flex justify-content-between m-2'>
@@ -137,7 +130,7 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
                   URL for your Thumbnail
                 </label>
                 <div>
-                  <label htmlFor='genre'>Choose a genre</label>
+                  <label htmlFor='genre'>Choose a genre: </label>
                   <br />
                   <select name='genre' value={ formData.genre } onChange={ handleChange }>
                     <option value='action'>Action</option>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles.scss';
 import Navbar from '../components/Navbar';
 import CreatorFeed from '../containers/CreatorFeed';
@@ -12,22 +12,43 @@ const Home = ({ userData, isAuthenticated, setIsAuthenticated }) => {
   const [studioName, setStudioName] = useState('');
   const [outputArray, setOutputArray] = useState([]);
 
-  const getFeed = () => {
-    fetch('/api/allVideos', {
-      method: 'GET',
+  const isLoggedIn = () => {
+    // make fetch request to see if user has a session. if so: set isAuthenticated to true;
+    fetch('api/creators/auth', {
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       credentials: 'include',
-    })
-      .then((videoData) => videoData.json())
-      .then((videoData) => {
-        setVideoList(videoData);
-      })
-      .catch((err) => {
-        console.log(`Home failed to GET all videos: ERROR: ${err}`);
-      })
-    ;
+    }).then((res) => res.json())
+      .then(response => {
+        console.log('this is the response in home from isLoggedIn: ', response);
+        if (response === true) setIsAuthenticated(true);
+      }).catch((err) => {
+        console.log(`Home failed to POST to auth: ERROR: ${err}`);
+      });
+  };
+
+  useEffect(() => {
+    isLoggedIn();
+  },[]);
+
+  const getFeed = async () => {
+    try {
+      const response = await fetch('/api/allVideos', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      const videoData = await response.json();
+      setVideoList(videoData);
+    }
+    catch (err) {
+      console.log(`Home failed to GET all videos: ERROR: ${err}`);
+    }
   };
 
   const fetchVideos = async () => {

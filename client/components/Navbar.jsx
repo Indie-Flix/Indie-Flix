@@ -10,7 +10,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated, fetchVideos, getFeed }) =
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
-      await fetch('/api/logout', {
+      await fetch('/api/creators/logout', {
         method: 'POST',
         credentials: 'include',
       });
@@ -56,7 +56,9 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated, fetchVideos, getFeed }) =
             </li>
             {isAuthenticated ? 
               <li className="nav-item">
-                <LogoutButton handleLogout={handleLogout} />
+                <button className="nav-link" onClick={() =>  handleLogout() }>
+                  Logout
+                </button>
               </li>
               : 
               <li className="nav-item">
