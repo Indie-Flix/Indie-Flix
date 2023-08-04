@@ -32,21 +32,15 @@ CreatorSchema.virtual('confirmPassword')
   .set((value) => (this._confirmPassword = value));
 
 CreatorSchema.pre('validate', function (next) {
-  console.log('in validate');
-
   if (this.password !== this.confirmPassword) {
     this.invalidate('confirmPassword', 'Passwords must match.');
-    console.log('Passwords don\'t match.');
   }
   next();
 });
 
 // AUTH: the pre property is needed to handle AUTH. Takes password, hashes it, and stores it
 CreatorSchema.pre('save', function (next) {
-  console.log('in pre save');
-
   bcrypt.hash(this.password, 10).then((hashedPassword) => {
-    console.log('in hash');
     this.password = hashedPassword;
     next();
   });

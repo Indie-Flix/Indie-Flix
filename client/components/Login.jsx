@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, FormControl, FormLabel } from 'react-bootstrap';
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -26,14 +26,12 @@ const Login = () => {
     })
       .then((userData) => userData.json()) //res is studioId
       .then((userData) => {
-        //userData could be an error message
-        // console.log(userData, 'SUCCESSFULLY Logged in!!');
-        // we need creator id from userData. 
         // call use navigate passing along correct data on the state property. collect this data using uselocation in the router and pass as prop to desired component
+        setIsAuthenticated(true);
         navigate('/', { state: { userData, }});
       })
       .catch((err) => {
-        console.error('An error occurred while logging in: ', err);
+        console.error(`Login failed to POST login request: ERROR: ${err}`);
       });
   };
 

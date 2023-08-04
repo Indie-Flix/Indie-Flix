@@ -22,7 +22,6 @@ const creatorController = {
 
       return next();
     } catch (err) {
-      console.log('Register unsuccessful');
       return next({
         log: `CreatorController.register failed to register new creator: ERROR: ${err.message}.`,
         status: 500,
@@ -58,7 +57,6 @@ const creatorController = {
         },
         process.env.JWT_SECRET
       );
-      console.log('succesful login');
 
       // Adds cookie to creator browser with signed JWT token
       res.cookie('usertoken', token, {

@@ -4,7 +4,7 @@ import EditForm from '../components/EditForm';
 import { Link } from 'react-router-dom';
 import VideoCard from '../components/VideoCard';
 
-const CreatorFeed = ({ userData, getFeed }) => {
+const CreatorFeed = ({ userData, getFeed, isAuthenticated }) => {
   const [studioName, setStudioName] = useState('');
   const [outputArray, setOutputArray] = useState([]);
 
@@ -19,7 +19,7 @@ const CreatorFeed = ({ userData, getFeed }) => {
       });
 
       if (!response.ok) {
-        console.log('Network response error.');
+        console.log(`Network response error: STATUS: ${response.status}`);
       }
       const videoData = await response.json();
       // setVideos(videoData);
@@ -30,15 +30,14 @@ const CreatorFeed = ({ userData, getFeed }) => {
         );
       }));
     } catch (err) {
-      console.log(`An error occurred while getting video info: ERROR: ${err.message}.`);
+      console.log(`CreatorFeed failed to GET all videos: ERROR: ${err}`);
     }
   };
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [isAuthenticated]);
   
-  console.log(outputArray);
   //We left off in trying to map the videos to create individual (movie cards) that are tied to the user/creator
   //we want to create an array of react elements with the specific video information for all videos retrieved by the fetch method
   return (
