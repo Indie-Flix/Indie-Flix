@@ -16,14 +16,19 @@ module.exports = function (app) {
   });
   
   // GET request for ALL videos to be sent to front end
-  app.get('/api/allVideos', videoController.allVideos, (req, res) =>
-    res.status(200).json(res.locals.videos)
-  );
+  app.get('/api/allVideos', videoController.allVideos, (req, res) => {
+    return res.status(200).json(res.locals.videos);
+  });
 
   // GET request for the selected video associated with a video ID
-  app.get('/api/videos/:id', videoController.videoById, (req, res) =>
-    res.status(200).json(res.locals.videoById)
-  );
+  app.get('/api/videos/:id', videoController.videoById, (req, res) => {
+    return res.status(200).json(res.locals.videoById);
+  });
+
+  //GET request for specific videso with specific genres
+  app.get('/api/videos/genre/:genre', videoController.videoByGenre, (req, res) => {
+    return res.status(200).json(res.locals.videos);
+  });
 
   // PATCH request to edit video upload contents
   // THIS NEEDS CREATORCONTROLLER because you can only edit your own videos
