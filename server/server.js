@@ -32,7 +32,7 @@ app.use((req, res) =>
 
 
 // GLOBAL ERROR HANDLER
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
