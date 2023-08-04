@@ -32,10 +32,6 @@ const Register = (props) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        // setUser(...newAccountInfo);
-        console.log('SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!');
-      })
-      .then((res) => {
         setUser({
           username: '',
           email: '',
@@ -47,10 +43,7 @@ const Register = (props) => {
         setErrors({}); //resetting error state if it was successful
       })
       .catch((err) => {
-        console.error(
-          'An error occurred while POSTING new user info: ',
-          err
-        );
+        console.error(`Register failed to POST new creator data: ERROR: ${err}`);
       });
   };
 

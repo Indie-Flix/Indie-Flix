@@ -2,16 +2,30 @@ import React from 'react';
 import '../styles.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Genre from '../components/Genre';
 
-
-const Feed = ({ getFeed, videoList }) => {
-
-
+const Feed = ({ getFeed, videoList, setVideoList }) => {
+  
+  const getByGenre = async (event) => {
+    const { value } = event.target;
+    try {
+      const result = await fetch(`api/videos/genre/${value}`);
+      
+      const videos = await result.json();
+      setVideoList(videos);
+      getVideoArray();
+    }
+    catch (err) {
+      console.log('Cannot fetch genre request', err);
+    }
+  };
   useEffect(() => {
     getFeed();
   }, []);
 
-  const videoArray = videoList.map((video, index) => {
+  let videoArray;
+  const getVideoArray = () => {
+    videoArray = videoList.map((video, index) => {
     return (
       <div className="col" key={index}>
         <div className="card shadow-sm">
@@ -42,13 +56,16 @@ const Feed = ({ getFeed, videoList }) => {
       </div>
     );
   });
-  
-
+  return videoArray;
+}
   return (
     <div className="album py-5 custom-dark-bg">
       <div className="container">
-        <div className="p-3 text-center text-primary-emphasis rounded-3 mb-4 custom-dark-bg border-strong-black">
+        <div className="p-3 text-center text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 mb-4 custom-dark-bg border-strong-black">
           <span className="text fs-1 text-white">Latest Uploaded Films</span>
+          <div>
+            <Genre getByGenre={ getByGenre } />
+          </div>
         </div>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {videoArray}

@@ -10,7 +10,8 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
     credits: '',
     videoUrl: '',
     description: '',
-    thumbnail: ''
+    thumbnail: '',
+    genre: '',
   });
 
   const handleChange = (event) => {
@@ -24,12 +25,12 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
         method:'DELETE',
       });
       if (response.status === 204) {
-        console.log('Video delete success.');
+        console.log('Video delete request success.');
         fetchVideos();
         getFeed();
       }
     } catch (err) {
-      console.log('Error while deleting video:', err.message);
+      console.log(`EditForm failed to DELETE video by ID: ERROR: ${err}`);
     }
   };
   
@@ -48,12 +49,11 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
         body: JSON.stringify(formData),
       });
       if (response.status === 201) {
-        // console.log('Video updated successfully!');
         fetchVideos();
         getFeed();
       }
     } catch (err) {
-      console.log('Error while updating the video:', err.message);
+      console.log(`EditForm failed to PATCH video information by ID: ERROR: ${err}`);
     }
   };
   
@@ -136,6 +136,19 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
                 <label htmlFor='edit-thumbURL' className='form-label card-text'>
                   URL for your Thumbnail
                 </label>
+                <div>
+                  <label htmlFor='genre'>Choose a genre</label>
+                  <br />
+                  <select name='genre' value={ formData.genre } onChange={ handleChange }>
+                    <option value='action'>Action</option>
+                    <option value='comedy'>Comedy</option>
+                    <option value='drama'>Drama</option>
+                    <option value='romance'>Romance</option>
+                    <option value='horror'>Horror</option>
+                    <option value='western'>Western</option>
+                    <option value='sci-fi'>Sci-Fi</option>
+                  </select>
+                </div>
               </div>
               <div className='d-flex justify-content-between'>
                 <button type='submit' className='btn btn-success' data-bs-dismiss='modal' > 

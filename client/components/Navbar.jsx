@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
+const Navbar = ({ isAuthenticated, setIsAuthenticated, fetchVideos, getFeed }) => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -52,7 +52,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
               >
                 Upload
               </a>
-              <UploadForm />
+              <UploadForm getFeed={getFeed} fetchVideos={fetchVideos} />
             </li>
             {isAuthenticated ? 
               <li className="nav-item">

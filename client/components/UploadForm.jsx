@@ -4,14 +4,15 @@ import { react, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //This comes from clicking the Upload button on the navbar
 
-const UploadForm = () => {
+const UploadForm = ({ getFeed, fetchVideos }) => {
   const [errorMessage, setErrorMessage] = useState('');
-  const[title, setTitle] = useState('');
-  const[videoLink, setVideoLink] = useState('');
-  const[credits, setCredits] = useState('');
-  const[description, setDescription] = useState('');
-  const[image, setImage] = useState('');
-
+  const [title, setTitle] = useState('');
+  const [videoLink, setVideoLink] = useState('');
+  const [credits, setCredits] = useState('');
+  const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
+  const [genre, setGenre] = useState('');
+  
   const handleVidSubmit = (e) => {
     e.preventDefault();
   
@@ -28,22 +29,21 @@ const UploadForm = () => {
         description: description,
         image: image,
         videoLink: videoLink,
-     
+        genre: genre
       }),
     })
       .then((videoData) => {
-
         setTitle('');
         setVideoLink('');
         setCredits('');
         setDescription('');
         setImage('');
+        setGenre('');
+        getFeed();
+        fetchVideos();
         return videoData.json();}) 
-      .then((videoData) => {
-        console.log(videoData, 'SUCCESSFULLY CREATED VIDEO!!');
-      })
       .catch((err) => {
-        console.log('An error occurred while POSTING new video info: ', err);
+        console.log(`UploadForm failed to POST new video upload: ERROR: ${err}`);
       });
   };
 
@@ -125,6 +125,18 @@ const UploadForm = () => {
                 <label htmlFor="edit-thumbURL" className="form-label card-text">
                   URL for your Thumbnail
                 </label>
+              </div>
+              <div>
+                <label htmlFor='genre'>Choose a genre \n</label>
+                <select name='genre' onChange={(e) => setGenre(e.target.value)}>
+                  <option value='action'>Action</option>
+                  <option value='comedy'>Comedy</option>
+                  <option value='drama'>Drama</option>
+                  <option value='romance'>Romance</option>
+                  <option value='horror'>Horror</option>
+                  <option value='western'>Western</option>
+                  <option value='sci-fi'>Sci-Fi</option>
+                </select>
               </div>
               <div className="d-flex justify-content-end">
                 <button

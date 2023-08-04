@@ -37,10 +37,6 @@ body {
   padding: 20px;
 }
 
-button .edit-btn {
-  background: pink;
-}
-
 .custom-btn {
   background-color: #e50914;
   border-color: #e50914;
@@ -73,5 +69,25 @@ button .edit-btn {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+}
+
+//////////////// watchlist component ////////////////
+
+.watchlist-container {
+
+}
+
+.watchlist-heading {
+  color: #fff;
+}
+
+.watchlist-row {
+  background-color: rgb(255, 255, 255);
+  height: 25rem;
+  width: 100%;
+}
+
+.mock-video {
+
 }
 
