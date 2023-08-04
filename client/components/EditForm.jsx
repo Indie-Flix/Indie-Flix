@@ -10,8 +10,7 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
     credits: '',
     videoUrl: '',
     description: '',
-    thumbnail: '',
-    genre: '',
+    thumbnail: ''
   });
 
   const handleChange = (event) => {
@@ -134,19 +133,6 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
                 <label htmlFor='edit-thumbURL' className='form-label'>
                   URL for your Thumbnail
                 </label>
-                <div>
-                  <label htmlFor='genre'>Choose a genre</label>
-                  <br />
-                  <select name='genre' value={ formData.genre } onChange={ handleChange }>
-                    <option value='action'>Action</option>
-                    <option value='comedy'>Comedy</option>
-                    <option value='drama'>Drama</option>
-                    <option value='romance'>Romance</option>
-                    <option value='horror'>Horror</option>
-                    <option value='western'>Western</option>
-                    <option value='sci-fi'>Sci-Fi</option>
-                  </select>
-                </div>
               </div>
               <div className='d-flex justify-content-between'>
                 <button type='submit' className='btn btn-success' data-bs-dismiss='modal' > 

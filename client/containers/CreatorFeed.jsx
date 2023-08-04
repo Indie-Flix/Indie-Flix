@@ -4,8 +4,35 @@ import EditForm from '../components/EditForm';
 import { Link } from 'react-router-dom';
 import VideoCard from '../components/VideoCard';
 
-const CreatorFeed = ({ userData, getFeed, isAuthenticated, fetchVideos, studioName, setStudioName, outputArray, setOutputArray }) => {
+const CreatorFeed = ({ userData, getFeed, isAuthenticated }) => {
+  const [studioName, setStudioName] = useState('');
+  const [outputArray, setOutputArray] = useState([]);
 
+  const fetchVideos = async () => {
+    try {
+      const response = await fetch('/api/videos', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        console.log(`Network response error: STATUS: ${response.status}`);
+      }
+      const videoData = await response.json();
+      // setVideos(videoData);
+      setStudioName(videoData[0].createdBy.studio);
+      setOutputArray(videoData.map(film => {
+        return (
+          <VideoCard key={film._id} film={film} fetchVideos={fetchVideos} getFeed={getFeed}/>
+        );
+      }));
+    } catch (err) {
+      console.log(`CreatorFeed failed to GET all videos: ERROR: ${err}`);
+    }
+  };
 
   useEffect(() => {
     fetchVideos();

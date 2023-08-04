@@ -27,10 +27,6 @@ const VideoSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Creator',
     },
-    genre: {
-      type: String,
-      required: [true, 'genre required']
-    }
   },
   { timestamps: true }
 );
