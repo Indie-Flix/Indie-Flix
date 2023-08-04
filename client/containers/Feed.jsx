@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Watchlist from '../components/WatchList';
 
 const Feed = ({ getFeed, videoList }) => {
 
@@ -45,7 +44,6 @@ const Feed = ({ getFeed, videoList }) => {
         <div className="p-3 text-center text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 mb-4">
           <span className="text fs-1">Latest Uploaded Films</span>
         </div>
-        <Watchlist getFeed={getFeed} videoList={videoList} />
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {videoArray}
         </div>
