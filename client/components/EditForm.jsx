@@ -62,7 +62,7 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
       <div className='modal-dialog modal-dialog-centered'>
         <div className='modal-content'>
           <div className='d-flex justify-content-between m-2'>
-            <h1>Edit Your Film Information</h1>
+            <h1 className='card-text'>Edit Your Film Information</h1>
             <button className='btn-close' data-bs-dismiss='modal'></button>
           </div>
           <div className='modal-body'>
@@ -72,12 +72,12 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
                   name='title'
                   type='text'
                   id='edit-title'
-                  className='form-control'
+                  className='form-control card-text'
                   placeholder='Place title here'
                   value={ formData.title }
                   onChange={handleChange}
                 />
-                <label htmlFor='edit-title' className='form-label'>
+                <label htmlFor='edit-title' className='form-label card-text'>
                   Title
                 </label>
               </div>
@@ -86,12 +86,12 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
                   name='credits'
                   type='text'
                   id='edit-credits'
-                  className='form-control'
+                  className='form-control card-text'
                   placeholder='Place credits here'
                   value={ formData.credits }
                   onChange={handleChange}
                 />
-                <label htmlFor='edit-credits' className='form-label'>
+                <label htmlFor='edit-credits' className='form-label card-text'>
                   Credits/Creators
                 </label>
               </div>
@@ -100,38 +100,40 @@ const EditForm = ({ id, fetchVideos, data, getFeed }) => {
                   name='videoUrl'
                   type='text'
                   id='edit-vidURL'
-                  className='form-control'
+                  className='form-control card-text'
                   placeholder='Place URL here'
                   value={ formData.videoUrl }
                   onChange={handleChange}
                 />
-                <label htmlFor='edit-vidURL' className='form-label'>
+                <label htmlFor='edit-vidURL' className='form-label card-text'>
                   URL for your Video
                 </label>
               </div>
               <div className='form-floating mb-3'>
                 <textarea
                   name='description'
-                  className='form-control'
+                  className='form-control card-text'
                   placeholder='Leave a desc'
                   value={ formData.description }
                   onChange={handleChange}
                   id='floatingTextarea2'
                   style={{ height: '100px' }}
                 ></textarea>
-                <label htmlFor='floatingTextarea2'>Description</label>
+                <label htmlFor='floatingTextarea2' className='card-text'>
+                  Description
+                </label>
               </div>
               <div className='form-floating mb-3'>
                 <input
                   name='thumbnail'
                   type='text'
                   id='edit-thumbURL'
-                  className='form-control'
+                  className='form-control card-text'
                   placeholder='Place URL here'
                   value={ formData.thumbnail }
                   onChange={handleChange}
                 />
-                <label htmlFor='edit-thumbURL' className='form-label'>
+                <label htmlFor='edit-thumbURL' className='form-label card-text'>
                   URL for your Thumbnail
                 </label>
                 <div>
