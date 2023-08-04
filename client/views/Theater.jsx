@@ -68,7 +68,6 @@ const Theater = () => {
                   <div className="card-body">
                     <p className="card-text custom-white-text">{video.description}</p> 
                     <div className="d-flex justify-content-end">
-                      <small className="text-muted">9 mins</small>
                     </div>
                   </div>
                 </div>
