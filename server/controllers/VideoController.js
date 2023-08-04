@@ -7,9 +7,9 @@ const videoController = {
     try {
 
       // Sanitize information in request body
-      const { title, description, image, credits, videoLink } = req.body;
+      const { title, description, image, credits, videoLink, genre } = req.body;
       // Create new video in database from sanitized request body
-      const newVideoObject = new Video({ title, description, image, credits, videoLink });
+      const newVideoObject = new Video({ title, description, image, credits, videoLink, genre, });
 
       // Decode JWT token
       const decodedJWT = jwt.decode(req.cookies.usertoken, {
@@ -99,7 +99,7 @@ const videoController = {
       // Sanitize ID from request params
       const { id } = req.params;
       // Sanitize information in request body
-      const { title, description, thumbnail: image, videoUrl: videoLink, credits } = req.body;
+      const { title, description, thumbnail: image, videoUrl: videoLink, credits, genre } = req.body;
 
       // Create new update variable with required fields from request body
       const updates = {};
@@ -108,6 +108,7 @@ const videoController = {
       if (image) updates.image = image;
       if (videoLink) updates.videoLink = videoLink;
       if (credits) updates.credits = credits;
+      if (genre) updates.genre = genre;
 
       // Find video by ID and update contents with sanitized update object
       const updatedVideo = await Video.findByIdAndUpdate(id, updates, { new: true });
@@ -157,8 +158,17 @@ const videoController = {
     try {
       //santaize route paramter id from request params
       const { genre } = req.params;
-      //find videos with 
-
+      //find videos with find passing in the genre
+      const result = await Video.find({ genre });
+      res.locals.videos = result;
+      return next();
+    }
+    catch (err) {
+      return next({
+        log: 'Could not find vidoes by genre',
+        status: 500,
+        message: { err: `Genres not found. There may be an issue with the find invocation: ${err}` },
+      });
     }
   }
 };

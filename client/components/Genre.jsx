@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import '../styles.scss';
 
-const Genre = () => {
+const Genre = ({ getByGenre }) => {
   // action, comedy, drama, romance, horror, western, sci-fi
-  const [genre, setGenre] = useState('');
 
-	const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    
-	}
 
   return (
     <form>
-      <label htmlFor='genre'>Choose a genre</label>
-      <select onChange={handleChange} name='genre'>
+      <label htmlFor='genre'>Choose a genre </label>
+      {/*Add on change function here!*/}
+      <select name='genre' onChange={getByGenre}>
         <option value='action'>Action</option>
         <option value='comedy'>Comedy</option>
         <option value='drama'>Drama</option>

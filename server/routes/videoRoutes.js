@@ -26,7 +26,7 @@ module.exports = function (app) {
   });
 
   //GET request for specific videso with specific genres
-  app.get('/api/videos/genre/:genre, videoController.videoByGenre', (req, res) => {
+  app.get('/api/videos/genre/:genre', videoController.videoByGenre, (req, res) => {
     return res.status(200).json(res.locals.videos);
   });
 

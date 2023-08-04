@@ -32,7 +32,7 @@ const Home = ({ userData }) => {
       <Navbar />
       <main className="bg-dark-subtle">
         <CreatorFeed getFeed={getFeed} userData={ userData } />
-        <Feed videoList={videoList} getFeed={getFeed} />
+        <Feed videoList={videoList} setVideoList={setVideoList} getFeed={getFeed} />
       </main>
       <Footer />
     </>
