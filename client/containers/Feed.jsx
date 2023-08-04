@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Watchlist from '../components/WatchList';
 import Genre from '../components/Genre';
 
 const Feed = ({ getFeed, videoList, setVideoList }) => {
