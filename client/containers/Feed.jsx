@@ -26,38 +26,41 @@ const Feed = ({ getFeed, videoList, setVideoList }) => {
   let videoArray;
   const getVideoArray = () => {
     videoArray = videoList.map((video, index) => {
-    return (
-      <div className="col" key={index}>
-        <div className="card shadow-sm">
-          <img
-            src={video.image}
-            className="bd-placeholder-img"
-            width="100%"
-            height="225"
-            role="img"
-            aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-          />
-          <div className="card-body custom-dark-bg text-center">
-            <p className="card-text custom-white-text video-title">{video.title}</p>
-            <div className="d-flex justify-content-center align-items-center">
-              <div className="btn-group">
-                <Link
-                  type="button"
-                  className="btn btn-sm custom-btn"
-                  to={`/videos/${video._id}`}
-                >
-                  View
-                </Link>
+      return (
+        <div className="col" key={index}>
+          <div className="card shadow-sm">
+            <img
+              src={video.image}
+              className="bd-placeholder-img"
+              width="100%"
+              height="225"
+              role="img"
+              aria-label="Placeholder: Thumbnail"
+              preserveAspectRatio="xMidYMid slice"
+            />
+            <div className="card-body custom-dark-bg text-center">
+              <p className="card-text custom-white-text video-title">{video.title}</p>
+              <div className="d-flex justify-content-center align-items-center">
+                <div className="btn-group">
+                  <Link
+                    type="button"
+                    className="btn btn-sm custom-btn"
+                    to={`/videos/${video._id}`}
+                  >
+                    View
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-  });
-  return videoArray;
-}
+      );
+    });
+    return videoArray;
+  };
+
+  getVideoArray();
+  
   return (
     <div className="album py-5 custom-dark-bg">
       <div className="container">

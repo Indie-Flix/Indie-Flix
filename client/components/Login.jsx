@@ -8,7 +8,6 @@ const Login = ({ setIsAuthenticated }) => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
-  const [resbody, setResBody] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,7 +27,7 @@ const Login = ({ setIsAuthenticated }) => {
       .then((userData) => {
         // call use navigate passing along correct data on the state property. collect this data using uselocation in the router and pass as prop to desired component
         setIsAuthenticated(true);
-        navigate('/', { state: { userData, }});
+        navigate('/', { state: { userData }});
       })
       .catch((err) => {
         console.error(`Login failed to POST login request: ERROR: ${err}`);
@@ -36,24 +35,21 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
- 
     <div style={{width: '60vw'}}>
       <h1 className="m-5">Login</h1>
       <p className="error-text">{errorMessage ? errorMessage : ''}</p>
-      <Form onSubmit={handleLogin} className="m-5">
-
+      <Form onSubmit={ handleLogin } className="m-5">
         <div className="form-floating mb-3">
           <input
             type="text"
             name="email"
             className="form-control "
             placeholder="Place title here"
-            value={email}
+            value={ email }
             onChange={(e) => setEmail(e.target.value)}
- 
           />
           <label htmlFor="email" className="form-label">
-                  Email
+            Email
           </label>
         </div>
         <div className="form-floating mb-3">
@@ -62,15 +58,13 @@ const Login = ({ setIsAuthenticated }) => {
             name="password"
             className="form-control"
             placeholder="Place title here"
-            value={password}
+            value={ password }
             onChange={(e) => setPassword(e.target.value)}
- 
           />
           <label htmlFor="password" className="form-label">
-                  Password
+            Password
           </label>
         </div>
-      
         <div className="center">
           <Button type="submit">Sign In</Button>
         </div>

@@ -27,4 +27,9 @@ module.exports = function (app) {
   app.post('/api/creators/logout', creatorController.logout, (req, res) => {
     return res.status(201).json(res.locals.logoutMessage);
   });
+  
+  // POST request to check if user is logged in
+  app.post('/api/creators/auth', creatorController.getLoggedInCreator, (req, res) => {
+    return res.status(200).json(res.locals.foundCreator);
+  });
 };

@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles.scss';
 
 const Genre = ({ getByGenre }) => {
-  // action, comedy, drama, romance, horror, western, sci-fi
-
-
   return (
     <form>
       <label htmlFor='genre'>Filter by genre </label>

@@ -113,7 +113,7 @@ const creatorController = {
       // finds and assigns the Creator model document associated with the _id of the usertoken to the creator variable
       const creator = await Creator.findOne({ _id: decodedJWT.payload.id });
       // assigns the creator document to the res.locals.foundCreator property so that it can be sent as a response in creatorRoutes
-      res.locals.foundCreator = creator;
+      res.locals.foundCreator = true;
 
       return next();
     } catch (err) {
